@@ -1,0 +1,48 @@
+/* progress-bar.component.css */
+.progress-container {
+    width: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+@keyframes fill {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #3498db;
+    animation: fill 2s ease-in-out forwards;
+    width: auto;
+}
+
+.progress-content {
+    display: flex;
+    align-items: center;
+}
+
+.fa {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.progress-text {
+    color: #000000;
+    padding: 5px;
+}
+
+.complete .progress-bar {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 49.9%, 100% {
+        opacity: 0;
+    }
+    50%, 99.9% {
+        opacity: 1;
+    }
+}

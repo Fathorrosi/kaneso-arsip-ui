@@ -1,0 +1,106 @@
+<ng-template #invalidText>
+    <img src="assets/img/avatar/avatar3.jpg" class="app-img-select__item w-8 rounded" />
+</ng-template>
+<div fxFill fxLayout="column" class="app-bg-container overflow-hidden">
+    <div class="px-4 py-4 flex">
+        <div class="app-productive-heading-03 font-bold">{{title}}</div>
+        <div class="flex-1 flex justify-end">
+            <button (click)="onClose()" ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+                <svg class="bx--btn__icon" ibmIconClose size="32"></svg>
+            </button>
+        </div>
+    </div>
+    <div fxFlex>
+        <div class="app-content app-content--default">
+            <form [formGroup]="formGroup">
+                <div class="app-form">
+                    <div fxLayout="row wrap" class="app-form__row">
+                        <div fxFlex="100%" fxFlex.gt-md="50%" class="app-form__item">
+                            <ibm-label [invalid]="isValid('first_name')" [invalidText]="'Bagian ini harus diisi'">
+                                Nama Depan
+                                <input [readonly]="isDetail" [invalid]="isValid('first_name')"
+                                    formControlName="first_name" ibmText size="md" theme="light">
+                            </ibm-label>
+                        </div>
+                        <div fxFlex="100%" fxFlex.gt-md="50%" class="app-form__item">
+                            <ibm-label [invalid]="isValid('last_name')" [invalidText]="'Bagian ini harus diisi'">
+                                Nama Belakang
+                                <input [readonly]="isDetail" [invalid]="isValid('last_name')"
+                                    formControlName="last_name" ibmText size="md" theme="light">
+                            </ibm-label>
+                        </div>
+                    </div>
+                    <div fxLayout="row wrap" class="app-form__row">
+                        <div fxFlex="100%" fxFlex.gt-md="50%" class="app-form__item">
+                            <ibm-combo-box *ngIf="!isDetail" [invalid]="isValid('role_id')" [size]="'md'"
+                                [appendInline]="false" formControlName="role_id" [itemValueKey]="'id'"
+                                [invalidText]="'Bagian ini harus diisi'" [label]="'Role'" [items]="roleNames"
+                                [theme]="'light'">
+                                <ibm-dropdown-list></ibm-dropdown-list>
+                            </ibm-combo-box>
+                            <ibm-label *ngIf="isDetail" [invalid]="isValid('role_id')"
+                                [invalidText]="'Bagian ini harus diisi'">
+                                Role
+                                <input [readonly]="isDetail" [invalid]="isValid('role_id')"
+                                    formControlName="role_id" ibmText size="md" theme="light">
+                            </ibm-label>
+                        </div>
+                        <div fxFlex="100%" fxFlex.gt-md="50%" class="app-form__item">
+                            <ibm-label [invalid]="isValid('email')"
+                                [invalidText]="'Bagian ini harus diisi / berformat email'">
+                                Email
+                                <input [readonly]="isDetail" [invalid]="isValid('email')" formControlName="email"
+                                    ibmText size="md" theme="light">
+                            </ibm-label>
+                        </div>
+                    </div>
+                    <div fxLayout="row wrap" class="app-form__row">
+                        <div fxFlex="100%" fxFlex.gt-md="50%" class="app-form__item">
+                            <ibm-label [invalid]="isValid('password')" [invalidText]="'Bagian ini harus diisi'">
+                                Password
+                                <input [readonly]="isDetail" [invalid]="isValid('password')" formControlName="password"
+                                    ibmText size="md" theme="light">
+                            </ibm-label>
+                        </div>
+                        <div fxFlex="100%" fxFlex.gt-md="50%" class="app-form__item">
+                            <ibm-combo-box *ngIf="!isDetail" [invalid]="isValid('status')" [size]="'md'"
+                                [appendInline]="false" formControlName="status" [itemValueKey]="'content'"
+                                [invalidText]="'Bagian ini harus diisi'" [label]="'Status'" [items]="userStatus"
+                                [theme]="'light'">
+                                <ibm-dropdown-list></ibm-dropdown-list>
+                            </ibm-combo-box>
+                            <ibm-label *ngIf="isDetail" [invalid]="isValid('status')"
+                                [invalidText]="'Bagian ini harus diisi'">
+                                Status
+                                <input [readonly]="isDetail" [invalid]="isValid('status')" 
+                                    formControlName="status" ibmText size="md" theme="light">
+                            </ibm-label>
+                        </div>
+                    </div>
+                    <div *ngIf="!isDetail && !isUpdate" class="px-4 py-4 flex justify-end app-border-t">
+                        <button (click)="onClose()" ibmButton="secondary" size="field" class="mr-1">
+                            Cancel
+                        </button>
+                        <button ibmButton="primary" size="field" (click)="onCreate()">
+                            Create
+                            <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                        </button>
+                    </div>
+                    <div *ngIf="isDetail" class="px-4 py-4 flex justify-end app-border-t">
+                        <button (click)="onClose()" ibmButton="secondary" size="field" class="mr-1">
+                            Back
+                        </button>
+                    </div>
+                    <div *ngIf="isUpdate" class="px-4 py-4 flex justify-end app-border-t">
+                        <button (click)="onClose()" ibmButton="secondary" size="field" class="mr-1">
+                            Cancel
+                        </button>
+                        <button ibmButton="primary" size="field" (click)="onUpdate()">
+                            Update
+                            <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

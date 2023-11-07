@@ -1,0 +1,27 @@
+<div fxFill fxLayout="column" class="app-sidebar app-scrollbar-fix">
+  <div class="app-sidebar__logo">
+    <div class="app-sidebar__logo__black">
+      <div style="font-weight: bold; font-size: 17px;">SMK Negeri 1 Omben</div>
+    </div>
+    <div class="app-sidebar__logo__white">
+      <div style="font-weight: bold; font-size: 17px;">SMK Negeri 1 Omben</div>
+    </div>
+    <!-- <ng-container *ngIf="opened">
+      <div (click)="onSideBarToggle()" class="app-sidebar__toggle-btn">
+        <youpez-ibm-icon iconName="radioButtonChecked" iconSize="16"></youpez-ibm-icon>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!opened">
+      <div (click)="onSideBarToggle()" class="app-sidebar__toggle-btn">
+        <youpez-ibm-icon iconName="radioButton" iconSize="16"></youpez-ibm-icon>
+      </div>
+    </ng-container> -->
+  </div>
+  <div #sideBarHolder fxFlex class="relative">
+    <ng-scrollbar #scrollBar>
+      <youpez-menu
+        [menu]="menu"
+        (groupToggle)="onGroupToggle($event)"></youpez-menu>
+    </ng-scrollbar>
+  </div>
+</div>

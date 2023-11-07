@@ -1,0 +1,33 @@
+<ng-template #invalidText>
+    <img src="assets/img/avatar/avatar3.jpg" class="app-img-select__item w-8 rounded" />
+</ng-template>
+<div fxFill fxLayout="column" class="app-bg-container overflow-hidden">
+    <div class="px-4 py-4 flex">
+        <div class="app-productive-heading-03 font-bold">{{title}}</div>
+        <div class="flex-1 flex justify-end">
+            <button [disabled]="uploading" (click)="onClose()" ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+                <svg class="bx--btn__icon" ibmIconClose size="32"></svg>
+            </button>
+        </div>
+    </div>
+    <div fxFlex>
+        <div class="app-content app-content--default">
+            <div class="app-form">
+                <ibm-file-uploader [title]="'Upload data Guru'" [description]="'hanya file csv, xls, xlsx yang diperbolehkan'"
+                    [buttonText]="'Tambahkan data'" [buttonType]="'primary'" [accept]="'.csv, .xls, .xlsx'"
+                    [multiple]="false" [size]="'normal'" [(files)]="files" (change)="onSelectedFile()"
+                    [disabled]="uploading">
+                </ibm-file-uploader>
+                <div *ngIf="uploadable" class="separator"></div>
+                <div class="upload-container">
+                    <button class="button-upload" [disabled]="uploading" (click)="onUpload()"
+                        *ngIf="files.size > 0 && uploadable" ibmButton="tertiary" size="md">
+                        Upload
+                        <ibm-icon-upload size="20" class="bx--btn__icon"></ibm-icon-upload>
+                    </button>
+                    <app-progress-bar *ngIf="uploadProgressShow"
+                        [animationDuration]="uploadDuration"></app-progress-bar>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,46 @@
+<div fxFill fxLayout="column">
+    <div fxLayout="row wrap" class="app-header app-header--hero">
+        <div fxFlex="100%" fxFlex.gt-sm="50%" class="relative z-10">
+            <div class="app-subtitle text-muted">
+                Data Sekolah
+            </div>
+            <div>
+                <span class="app-expressive-heading-06 mr-2">Jurusan</span>
+                <span class="app-expressive-heading-03">[ Tabel ini berisi data jurusan yang ada di sekolah
+                    ]</span>
+            </div>
+        </div>
+    </div>
+    <div class="pt-2 px-4">
+        <ibm-table-toolbar-content>
+            <ibm-search ngDefaultControl (clear)="filterData({ type: 'search', value: null })" (valueChange)="filterData({ type: 'search', value: $event })">
+            </ibm-search>
+            <ibm-overflow-menu triggerClass="bx--toolbar-action" [customTrigger]="customTrigger" placement="bottom">
+                <ibm-overflow-menu-option  [disabled]="selectedRows.length > 1 || selectedRows.length < 1"
+                    (selected)="actionHandler('detail')">
+                    Detail
+                </ibm-overflow-menu-option>
+                <ibm-overflow-menu-option [disabled]="selectedRows.length > 1 || selectedRows.length < 1"
+                    (selected)="actionHandler('update')">
+                    Update
+                </ibm-overflow-menu-option>
+                <ibm-overflow-menu-option type="danger" [disabled]="selectedRows.length < 1"
+                    (selected)="actionHandler('delete')">Delete</ibm-overflow-menu-option>
+            </ibm-overflow-menu>
+            <button style="height: 40px;" (click)="createHandler()" ibmButton="primary" size="sm">
+                Tambah Jurusan
+                <ibm-icon-add size="20" class="bx--btn__icon"></ibm-icon-add>
+            </button>
+            &nbsp;
+            <ng-template #customTrigger>
+                <svg ibmIconSettings size="16"></svg>
+            </ng-template>
+        </ibm-table-toolbar-content>
+    </div>
+    <div fxFlex class="relative px-4 pb-4 pt-2">
+        <ng-container *ngIf="!loading">
+            <ag-grid-angular class="app-ag-grid app-border-all" [modules]="modules" [gridOptions]="gridOptions">
+            </ag-grid-angular>
+        </ng-container>
+    </div>
+</div>

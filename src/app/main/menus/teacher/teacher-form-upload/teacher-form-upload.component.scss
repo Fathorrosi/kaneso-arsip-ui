@@ -1,0 +1,21 @@
+.upload-container {
+    display: flex;
+    align-items: end; /* Pusatkan vertikal */
+    gap: 10px; /* Ruang antara button dan progress bar */
+}
+
+/* Jika Anda ingin membuat button dan progress bar tetap berada di posisi horizontal yang sama, Anda dapat menyesuaikan ukurannya seperti ini */
+button-upload {
+    flex: 1; /* Menggunakan sebanyak ruang yang tersedia */
+}
+
+app-progress-bar {
+    flex: 2; /* Menggunakan dua kali ruang daripada button */
+}
+
+
+.separator {
+    border-top: 1px solid #ccc; /* Atur warna dan tampilan garis separator sesuai kebutuhan */
+    margin-top: 10px; /* Atur jarak atas separator */
+    margin-bottom: 10px; /* Atur jarak bawah separator */
+}

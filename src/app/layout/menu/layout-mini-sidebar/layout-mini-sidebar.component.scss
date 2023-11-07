@@ -1,0 +1,48 @@
+/* CSS untuk mengaburkan latar belakang */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Warna latar belakang yang mengaburkan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Pastikan lebih tinggi daripada elemen lainnya */
+  }
+  
+  /* CSS untuk komponen loading */
+  .loading-container {
+    // background-color: #fff; /* Warna latar belakang komponen loading */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* CSS untuk animasi loading */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .loading-spinner {
+    width: 100px; /* Sesuaikan ukuran komponen loading */
+    height: 100px;
+    border: 10px solid #f3f3f3; /* Warna border */
+    border-top: 10px solid #3498db; /* Warna border atas (sesuaikan dengan desain Anda) */
+    border-radius: 50%;
+    animation: spin 2s linear infinite; /* Menggunakan animasi 'spin' yang telah didefinisikan */
+    margin: 0 auto; /* Membuat komponen loading menjadi tengah */
+  }
+  
+  .loading-text {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  

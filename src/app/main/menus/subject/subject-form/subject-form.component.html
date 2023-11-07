@@ -1,0 +1,52 @@
+<ng-template #invalidText>
+    <img src="assets/img/avatar/avatar3.jpg" class="app-img-select__item w-8 rounded" />
+</ng-template>
+<div fxFill fxLayout="column" class="app-bg-container overflow-hidden">
+    <div class="px-4 py-4 flex">
+        <div class="app-productive-heading-03 font-bold">{{title}}</div>
+        <div class="flex-1 flex justify-end">
+            <button (click)="onClose()" ibmButton="ghost" size="sm" class="bx--btn--icon-only">
+                <svg class="bx--btn__icon" ibmIconClose size="32"></svg>
+            </button>
+        </div>
+    </div>
+    <div fxFlex>
+        <div class="app-content app-content--default">
+            <form [formGroup]="formGroup">
+                <div class="app-form">
+                    <div fxLayout="row wrap" class="app-form__row">
+                        <div fxFlex="100%" fxFlex.gt-md="100%" class="app-form__item">
+                            <ibm-label [invalid]="isValid('name')" [invalidText]="'Bagian ini harus diisi'">
+                                Nama Mata Pelajaran
+                                <input [readonly]="isDetail" [invalid]="isValid('name')" formControlName="name" ibmText
+                                    size="md" theme="light">
+                            </ibm-label>
+                        </div>
+                    </div>
+                    <div *ngIf="!isDetail && !isUpdate" class="px-4 py-4 flex justify-end app-border-t">
+                        <button (click)="onClose()" ibmButton="secondary" size="field" class="mr-1">
+                            Cancel
+                        </button>
+                        <button ibmButton="primary" size="field" (click)="onCreate()">
+                            Create
+                            <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                        </button>
+                    </div>
+                    <div *ngIf="isDetail" class="px-4 py-4 flex justify-end app-border-t">
+                        <button (click)="onClose()" ibmButton="secondary" size="field" class="mr-1">
+                            Back
+                        </button>
+                    </div>
+                    <div *ngIf="isUpdate" class="px-4 py-4 flex justify-end app-border-t">
+                        <button (click)="onClose()" ibmButton="secondary" size="field" class="mr-1">
+                            Cancel
+                        </button>
+                        <button ibmButton="primary" size="field" (click)="onUpdate()">
+                            Update
+                            <svg class="bx--btn__icon" ibmIconAdd size="20"></svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

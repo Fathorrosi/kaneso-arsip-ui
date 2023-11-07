@@ -1,0 +1,11 @@
+<div class="progress-container">
+    <div class="app-form" style="width: 100%;">
+        <div class="progress-bar" [ngStyle]="{'animation-duration': animationDuration + 's'}"
+            (animationend)="animationEnded()">
+        </div>
+        <div class="progress-content">
+            <span class="progress-text">{{ progressText }}</span>
+            <i class="fa fa-check" [ngStyle]="{'display': uploadCompleted ? 'inline' : 'none', 'color': 'green'}"></i>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+.status-cell {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status-badge {
+    padding: 10px 15px;
+    border-radius: 50px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    color: #fff; /* Warna teks */
+  }
+  
+  .asn {
+    background-color: #008000; /* Warna latar belakang untuk ASN */
+  }
+  
+  .non-asn {
+    background-color: #FFA500; /* Warna latar belakang untuk Non ASN */
+  }
+  
